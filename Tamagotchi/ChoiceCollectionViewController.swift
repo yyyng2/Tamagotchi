@@ -26,6 +26,7 @@ class ChoiceCollectionViewController: UICollectionViewController {
     func designNavigationItem(){
         navigationItem.title = "다마고치 선택하기"
         navigationItem.hidesBackButton = true
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
     }
 
     func designCell(){
@@ -65,14 +66,16 @@ class ChoiceCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.item < 3{
-            
+            let indexNumber = indexPath.item
             let tamagotchiDetailStoryBoard = UIStoryboard(name: "Choice", bundle: nil)
             guard let tamagotchiDetailViewController = tamagotchiDetailStoryBoard.instantiateViewController(withIdentifier: TamagotchiDetailViewController.identifier) as? TamagotchiDetailViewController else {
             return
             }
             let navigationViewcontroller = UINavigationController(rootViewController: tamagotchiDetailViewController)
             navigationViewcontroller.modalPresentationStyle = .overCurrentContext
-            tamagotchiDetailViewController.tamagotchiData = tamagotchiList.tamoagotchi[indexPath.row]
+            tamagotchiDetailViewController.tamagotchiData = tamagotchiList.tamoagotchi[indexNumber]
+            tamagotchiDetailViewController.indexNumber = indexNumber
+            print(indexNumber)
             self.present(navigationViewcontroller, animated: true)
         } else {
             let alert = UIAlertController(title: "!", message: "준비중입니다.", preferredStyle: .alert)

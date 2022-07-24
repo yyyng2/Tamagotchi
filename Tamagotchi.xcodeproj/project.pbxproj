@@ -21,8 +21,13 @@
 		1879EBAC288AA328009B0603 /* TamagotchiInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879EBAB288AA328009B0603 /* TamagotchiInfo.swift */; };
 		1879EBB2288AA37C009B0603 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 1879EBB1288AA37C009B0603 /* Toast */; };
 		1879EBB4288AA4AA009B0603 /* Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879EBB3288AA4AA009B0603 /* Script.swift */; };
+		188495D0288BE996001901B4 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188495CF288BE996001901B4 /* SettingTableViewCell.swift */; };
+		188495D4288CBFE1001901B4 /* NicknameSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188495D3288CBFE1001901B4 /* NicknameSettingViewController.swift */; };
 		189D0F32288AB6CB00132858 /* TamagotchiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D0F31288AB6CB00132858 /* TamagotchiViewController.swift */; };
 		189D0F38288AB8FA00132858 /* TamagotchiDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D0F37288AB8FA00132858 /* TamagotchiDetailViewController.swift */; };
+		189D0F40288B8C6000132858 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 189D0F3F288B8C6000132858 /* Setting.storyboard */; };
+		189D0F42288B8D3B00132858 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D0F41288B8D3B00132858 /* SettingTableViewController.swift */; };
+		189D0F48288BD73000132858 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D0F47288BD73000132858 /* UIViewController + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,8 +46,13 @@
 		1879EBA9288AA31E009B0603 /* Tamagotchis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tamagotchis.swift; sourceTree = "<group>"; };
 		1879EBAB288AA328009B0603 /* TamagotchiInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiInfo.swift; sourceTree = "<group>"; };
 		1879EBB3288AA4AA009B0603 /* Script.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Script.swift; sourceTree = "<group>"; };
+		188495CF288BE996001901B4 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		188495D3288CBFE1001901B4 /* NicknameSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameSettingViewController.swift; sourceTree = "<group>"; };
 		189D0F31288AB6CB00132858 /* TamagotchiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiViewController.swift; sourceTree = "<group>"; };
 		189D0F37288AB8FA00132858 /* TamagotchiDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiDetailViewController.swift; sourceTree = "<group>"; };
+		189D0F3F288B8C6000132858 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		189D0F41288B8D3B00132858 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		189D0F47288BD73000132858 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +98,12 @@
 				1879EBAB288AA328009B0603 /* TamagotchiInfo.swift */,
 				1879EBA1288A8BF6009B0603 /* Tamagotchi.storyboard */,
 				189D0F31288AB6CB00132858 /* TamagotchiViewController.swift */,
+				189D0F3F288B8C6000132858 /* Setting.storyboard */,
+				189D0F41288B8D3B00132858 /* SettingTableViewController.swift */,
+				188495CF288BE996001901B4 /* SettingTableViewCell.swift */,
+				188495D3288CBFE1001901B4 /* NicknameSettingViewController.swift */,
 				1879EBB3288AA4AA009B0603 /* Script.swift */,
+				189D0F47288BD73000132858 /* UIViewController + Extension.swift */,
 				1879EB96288A7ACF009B0603 /* Assets.xcassets */,
 				1879EB98288A7ACF009B0603 /* LaunchScreen.storyboard */,
 				1879EB9B288A7ACF009B0603 /* Info.plist */,
@@ -165,6 +180,7 @@
 				1879EBA2288A8BF6009B0603 /* Tamagotchi.storyboard in Resources */,
 				1879EB97288A7ACF009B0603 /* Assets.xcassets in Resources */,
 				1879EB95288A7ACC009B0603 /* Main.storyboard in Resources */,
+				189D0F40288B8C6000132858 /* Setting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,14 +192,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				1879EB92288A7ACC009B0603 /* NicknameViewController.swift in Sources */,
+				188495D4288CBFE1001901B4 /* NicknameSettingViewController.swift in Sources */,
 				1879EBA6288A950F009B0603 /* ChoiceCollectionViewController.swift in Sources */,
 				1879EB8E288A7ACC009B0603 /* AppDelegate.swift in Sources */,
 				1879EBAC288AA328009B0603 /* TamagotchiInfo.swift in Sources */,
 				189D0F38288AB8FA00132858 /* TamagotchiDetailViewController.swift in Sources */,
 				1879EBB4288AA4AA009B0603 /* Script.swift in Sources */,
 				189D0F32288AB6CB00132858 /* TamagotchiViewController.swift in Sources */,
+				189D0F42288B8D3B00132858 /* SettingTableViewController.swift in Sources */,
+				188495D0288BE996001901B4 /* SettingTableViewCell.swift in Sources */,
 				1879EBA8288A951F009B0603 /* ChoiceCollectionViewCell.swift in Sources */,
 				1879EBAA288AA31E009B0603 /* Tamagotchis.swift in Sources */,
+				189D0F48288BD73000132858 /* UIViewController + Extension.swift in Sources */,
 				1879EB90288A7ACC009B0603 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,6 +10,8 @@ import UIKit
 class TamagotchiDetailViewController: UIViewController {
 
     var tamagotchiData: TamagotchiList?
+    var tamagoNumber = TamagotchiInfo()
+    var indexNumber = 0
     
     static let identifier = "TamagotchiDetailViewController"
     
@@ -34,7 +36,8 @@ class TamagotchiDetailViewController: UIViewController {
     }
     
     func designTamagotchiImage(){
-        tamagotchiImageView.image = tamagotchiData?.tamagotchiBlurImage
+        tamagotchiImageView.image = tamagoNumber.tamoagotchi[indexNumber].tamagotchiBlurImage
+        //tamagotchiImageView.image = tamagotchiData?.tamagotchiBlurImage
         tamagotchiImageView.backgroundColor = .clear
     }
     
@@ -50,8 +53,8 @@ class TamagotchiDetailViewController: UIViewController {
         descriptionLabel.textAlignment = .center
         tamagotchiNameLabel.textAlignment = .center
         descriptionLabel.numberOfLines = 5
-        tamagotchiNameLabel.text = tamagotchiData?.tamagotchiName
-        descriptionLabel.text = tamagotchiData?.tamagotchiDescription
+        tamagotchiNameLabel.text = tamagoNumber.tamoagotchi[indexNumber].tamagotchiName
+        descriptionLabel.text = tamagoNumber.tamoagotchi[indexNumber].tamagotchiDescription
         descriptionLabel.font = .systemFont(ofSize: 14)
 
     }
@@ -78,10 +81,11 @@ class TamagotchiDetailViewController: UIViewController {
         guard let tamagotchiViewController = tamagotchiStoryBoard.instantiateViewController(withIdentifier: TamagotchiViewController.identifier) as? TamagotchiViewController else {
             return
         }
-        
+        UserDefaults.standard.set(indexNumber, forKey: "index")
+        tamagotchiViewController.indexNumber = indexNumber
+
         tamagotchiViewController.modalPresentationStyle = .fullScreen
-        self.navigationController?.pushViewController(tamagotchiViewController, animated: true)
-        
+        self.navigationController?.pushViewController(tamagotchiViewController, animated: false)
         
     }
     

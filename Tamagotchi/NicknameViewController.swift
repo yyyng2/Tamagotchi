@@ -20,11 +20,7 @@ class NicknameViewController: UIViewController {
         designLabel()
         designDoneButton()
         designMainUIView()
-        
-    }
-    
-    func designNavigationItem(){
-        
+        UserDefaults.standard.set(true, forKey: "First")
     }
 
     func designMainUIView(){
@@ -51,11 +47,6 @@ class NicknameViewController: UIViewController {
         doneButton.layer.cornerRadius = 8
     }
     
-    func alert(title: String, message: String){
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "확인", style: .cancel))
-        present(alert, animated: true)
-    }
     
     @IBAction func doneButtonTapped(_ sender: UIButton) {
        
@@ -79,7 +70,7 @@ class NicknameViewController: UIViewController {
         let userNickname = userNicknameTextField.text!
         print(tamagotchiViewController.userNickname)
         UserDefaults.standard.set(userNickname, forKey: "userNickname")
-        
+        UserDefaults.standard.set(false, forKey: "First")
         
         let navigationController = UINavigationController(rootViewController: choiceCollectionViewController)
         navigationController.modalPresentationStyle = .fullScreen
