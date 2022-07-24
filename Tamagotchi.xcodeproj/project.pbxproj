@@ -19,7 +19,6 @@
 		1879EBA8288A951F009B0603 /* ChoiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879EBA7288A951F009B0603 /* ChoiceCollectionViewCell.swift */; };
 		1879EBAA288AA31E009B0603 /* Tamagotchis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879EBA9288AA31E009B0603 /* Tamagotchis.swift */; };
 		1879EBAC288AA328009B0603 /* TamagotchiInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879EBAB288AA328009B0603 /* TamagotchiInfo.swift */; };
-		1879EBB2288AA37C009B0603 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 1879EBB1288AA37C009B0603 /* Toast */; };
 		1879EBB4288AA4AA009B0603 /* Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879EBB3288AA4AA009B0603 /* Script.swift */; };
 		188495D0288BE996001901B4 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188495CF288BE996001901B4 /* SettingTableViewCell.swift */; };
 		188495D4288CBFE1001901B4 /* NicknameSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188495D3288CBFE1001901B4 /* NicknameSettingViewController.swift */; };
@@ -60,7 +59,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1879EBB2288AA37C009B0603 /* Toast in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,7 +126,6 @@
 			);
 			name = Tamagotchi;
 			packageProductDependencies = (
-				1879EBB1288AA37C009B0603 /* Toast */,
 			);
 			productName = Tamagotchi;
 			productReference = 1879EB8A288A7ACC009B0603 /* Tamagotchi.app */;
@@ -159,7 +156,6 @@
 			);
 			mainGroup = 1879EB81288A7ACC009B0603;
 			packageReferences = (
-				1879EBB0288AA37C009B0603 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = 1879EB8B288A7ACC009B0603 /* Products */;
 			projectDirPath = "";
@@ -424,25 +420,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		1879EBB0288AA37C009B0603 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		1879EBB1288AA37C009B0603 /* Toast */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1879EBB0288AA37C009B0603 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
-			productName = Toast;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1879EB82288A7ACC009B0603 /* Project object */;
 }

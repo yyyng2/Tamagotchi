@@ -55,11 +55,17 @@ class TamagotchiViewController: UIViewController {
     
     func designButton(){
         waterButton.setImage(UIImage(systemName: "drop.circle"), for: .normal)
-        waterButton.setTitle("물먹기", for: .normal)
+        waterButton.setTitle(" 물먹기", for: .normal)
         waterButton.tintColor = .white
         riceButton.setImage(UIImage(systemName: "leaf.circle"), for: .normal)
-        riceButton.setTitle("밥먹기", for: .normal)
+        riceButton.setTitle(" 밥먹기", for: .normal)
         riceButton.tintColor = .white
+        waterButton.layer.borderWidth = 1
+        waterButton.layer.borderColor = UIColor.white.cgColor
+        waterButton.layer.cornerRadius = 8
+        riceButton.layer.borderColor = UIColor.white.cgColor
+        riceButton.layer.borderWidth = 1
+        riceButton.layer.cornerRadius = 8
         
     }
     
