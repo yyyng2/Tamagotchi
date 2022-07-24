@@ -47,6 +47,17 @@ class NicknameViewController: UIViewController {
         doneButton.layer.cornerRadius = 8
     }
     
+    func textFieldShouldReturn(_ TextField: UITextField) -> Bool {
+        
+        
+        userNicknameTextField.resignFirstResponder()
+        self.dismiss(animated: true, completion: nil)
+        self.view.endEditing(true)
+
+        return true
+        
+    }
+    
     
     @IBAction func doneButtonTapped(_ sender: UIButton) {
        
@@ -78,5 +89,11 @@ class NicknameViewController: UIViewController {
         
     }
     
+    @IBAction func userNicknameDone(_ sender: UITextField) {
+        view.endEditing(true)
+    }
+    @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
 }
 

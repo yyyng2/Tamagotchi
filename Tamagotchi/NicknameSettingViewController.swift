@@ -29,8 +29,20 @@ class NicknameSettingViewController: UIViewController {
     func designUI(){
         userTextField.backgroundColor = .clear
         userTextField.borderStyle = .none
+        userTextField.placeholder = "2~6글자"
         whiteLineImageView.image = UIImage(named: "horizontalWhiteLine")
         whiteLineImageView.contentMode = .scaleToFill
+    }
+    
+    func textFieldShouldReturn(_ TextField: UITextField) -> Bool {
+        
+        
+        userTextField.resignFirstResponder()
+        self.dismiss(animated: true, completion: nil)
+        self.view.endEditing(true)
+
+        return true
+        
     }
     
     @objc func saveButtonTapped(){
