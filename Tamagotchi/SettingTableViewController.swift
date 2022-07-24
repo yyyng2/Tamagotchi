@@ -42,6 +42,7 @@ class SettingTableViewController: UITableViewController {
         3
     }
 
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.identifier) as? SettingTableViewCell else {
             return UITableViewCell()
