@@ -94,7 +94,9 @@ class TamagotchiViewController: UIViewController {
     
     func designTextField(){
         waterTextField.keyboardType = .numberPad
+        waterTextField.placeholder = "1~50"
         riceTextField.keyboardType = .numberPad
+        riceTextField.placeholder = "1~99"
         addDoneButtonOnNumpad(textField: waterTextField)
         addDoneButtonOnNumpad(textField: riceTextField)
     }
@@ -245,6 +247,7 @@ class TamagotchiViewController: UIViewController {
     @IBAction func riceButtonTapped(_ sender: UIButton) {
         let currentValue:Int = UserDefaults.standard.integer(forKey: "rice")
         var updateValue = 0
+
         if riceTextField.text == ""{
             updateValue = currentValue + 1
             UserDefaults.standard.set(updateValue, forKey: "rice")
@@ -252,6 +255,10 @@ class TamagotchiViewController: UIViewController {
             let codeNum = Int(riceTextField.text!)
             if codeNum == nil {
                 alert(title: "!", message: "숫자로만 입력해주세요.")
+            } else if riceTextField.text != ""{
+                if Int(riceTextField.text!)! > 100{
+                    return
+                }
             } else {
                 updateValue = currentValue + Int(riceTextField.text!)!
                 UserDefaults.standard.set(updateValue, forKey: "rice")
@@ -275,6 +282,10 @@ class TamagotchiViewController: UIViewController {
             let codeNum = Int(waterTextField.text!)
             if codeNum == nil {
                 alert(title: "!", message: "숫자로만 입력해주세요.")
+            } else if waterTextField.text != ""{
+                if Int(waterTextField.text!)! > 50{
+                    return
+                }
             } else {
                 updateValue = currentValue + Int(waterTextField.text!)!
                 UserDefaults.standard.set(updateValue, forKey: "water")
