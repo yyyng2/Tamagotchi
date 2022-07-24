@@ -74,6 +74,8 @@ class TamagotchiDetailViewController: UIViewController {
         cancelButton.tintColor = .white
         doneButton.backgroundColor = .clear
         cancelButton.backgroundColor = .systemGray2
+        cancelButton.layer.cornerRadius = 8
+        cancelButton.layer.maskedCorners = CACornerMask.layerMinXMaxYCorner
     }
 
     @IBAction func doneButtonTapped(_ sender: UIButton) {
