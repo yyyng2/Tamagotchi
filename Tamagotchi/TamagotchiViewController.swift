@@ -77,6 +77,7 @@ class TamagotchiViewController: UIViewController {
             
             // add a done button to the numberpad
             keypadToolbar.items=[
+                
                 UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: textField, action: #selector(UITextField.resignFirstResponder)),
                 UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
             ]
@@ -282,6 +283,7 @@ class TamagotchiViewController: UIViewController {
     }
     
     @IBAction func gestureTapped(_ sender: UITapGestureRecognizer) {
+        UserDefaults.standard.set(false, forKey: "keyboard")
         view.endEditing(true)
     }
     
