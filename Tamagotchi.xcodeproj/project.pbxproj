@@ -84,22 +84,14 @@
 		1879EB8C288A7ACC009B0603 /* Tamagotchi */ = {
 			isa = PBXGroup;
 			children = (
+				18917D7D288E2B5800CF2260 /* Nickname */,
+				18917D7E288E2B7400CF2260 /* Choice */,
+				18917D7F288E2B8900CF2260 /* Tamagotchi */,
+				18917D80288E2BB500CF2260 /* Setting */,
 				1879EB8D288A7ACC009B0603 /* AppDelegate.swift */,
 				1879EB8F288A7ACC009B0603 /* SceneDelegate.swift */,
-				1879EB93288A7ACC009B0603 /* Main.storyboard */,
-				1879EB91288A7ACC009B0603 /* NicknameViewController.swift */,
-				1879EBA3288A94C6009B0603 /* Choice.storyboard */,
-				1879EBA5288A950F009B0603 /* ChoiceCollectionViewController.swift */,
-				1879EBA7288A951F009B0603 /* ChoiceCollectionViewCell.swift */,
-				189D0F37288AB8FA00132858 /* TamagotchiDetailViewController.swift */,
 				1879EBA9288AA31E009B0603 /* Tamagotchis.swift */,
 				1879EBAB288AA328009B0603 /* TamagotchiInfo.swift */,
-				1879EBA1288A8BF6009B0603 /* Tamagotchi.storyboard */,
-				189D0F31288AB6CB00132858 /* TamagotchiViewController.swift */,
-				189D0F3F288B8C6000132858 /* Setting.storyboard */,
-				189D0F41288B8D3B00132858 /* SettingTableViewController.swift */,
-				188495CF288BE996001901B4 /* SettingTableViewCell.swift */,
-				188495D3288CBFE1001901B4 /* NicknameSettingViewController.swift */,
 				1879EBB3288AA4AA009B0603 /* Script.swift */,
 				189D0F47288BD73000132858 /* UIViewController + Extension.swift */,
 				1879EB96288A7ACF009B0603 /* Assets.xcassets */,
@@ -107,6 +99,46 @@
 				1879EB9B288A7ACF009B0603 /* Info.plist */,
 			);
 			path = Tamagotchi;
+			sourceTree = "<group>";
+		};
+		18917D7D288E2B5800CF2260 /* Nickname */ = {
+			isa = PBXGroup;
+			children = (
+				1879EB93288A7ACC009B0603 /* Main.storyboard */,
+				1879EB91288A7ACC009B0603 /* NicknameViewController.swift */,
+			);
+			path = Nickname;
+			sourceTree = "<group>";
+		};
+		18917D7E288E2B7400CF2260 /* Choice */ = {
+			isa = PBXGroup;
+			children = (
+				1879EBA3288A94C6009B0603 /* Choice.storyboard */,
+				1879EBA5288A950F009B0603 /* ChoiceCollectionViewController.swift */,
+				1879EBA7288A951F009B0603 /* ChoiceCollectionViewCell.swift */,
+				189D0F37288AB8FA00132858 /* TamagotchiDetailViewController.swift */,
+			);
+			path = Choice;
+			sourceTree = "<group>";
+		};
+		18917D7F288E2B8900CF2260 /* Tamagotchi */ = {
+			isa = PBXGroup;
+			children = (
+				1879EBA1288A8BF6009B0603 /* Tamagotchi.storyboard */,
+				189D0F31288AB6CB00132858 /* TamagotchiViewController.swift */,
+			);
+			path = Tamagotchi;
+			sourceTree = "<group>";
+		};
+		18917D80288E2BB500CF2260 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				189D0F3F288B8C6000132858 /* Setting.storyboard */,
+				189D0F41288B8D3B00132858 /* SettingTableViewController.swift */,
+				188495CF288BE996001901B4 /* SettingTableViewCell.swift */,
+				188495D3288CBFE1001901B4 /* NicknameSettingViewController.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,6 +382,7 @@
 				DEVELOPMENT_TEAM = UT362X937Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Tamagotchi/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "김동영-다마고치";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -379,6 +412,7 @@
 				DEVELOPMENT_TEAM = UT362X937Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Tamagotchi/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "김동영-다마고치";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

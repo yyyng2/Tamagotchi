@@ -79,7 +79,6 @@ class NicknameViewController: UIViewController {
         }
         
         let userNickname = userNicknameTextField.text!
-        print(tamagotchiViewController.userNickname)
         UserDefaults.standard.set(userNickname, forKey: "userNickname")
         UserDefaults.standard.set(false, forKey: "First")
         

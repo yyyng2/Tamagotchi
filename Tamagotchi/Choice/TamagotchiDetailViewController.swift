@@ -37,7 +37,6 @@ class TamagotchiDetailViewController: UIViewController {
     
     func designTamagotchiImage(){
         tamagotchiImageView.image = tamagoNumber.tamoagotchi[indexNumber].tamagotchiBlurImage
-        //tamagotchiImageView.image = tamagotchiData?.tamagotchiBlurImage
         tamagotchiImageView.backgroundColor = .clear
     }
     
