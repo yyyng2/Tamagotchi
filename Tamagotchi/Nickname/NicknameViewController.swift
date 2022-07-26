@@ -81,6 +81,7 @@ class NicknameViewController: UIViewController {
         let userNickname = userNicknameTextField.text!
         UserDefaults.standard.set(userNickname, forKey: "userNickname")
         UserDefaults.standard.set(false, forKey: "First")
+        UserDefaults.standard.set(true, forKey: "select")
         
         let navigationController = UINavigationController(rootViewController: choiceCollectionViewController)
         navigationController.modalPresentationStyle = .fullScreen

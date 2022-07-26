@@ -24,7 +24,13 @@ class ChoiceCollectionViewController: UICollectionViewController {
     }
     
     func designNavigationItem(){
-        navigationItem.title = "다마고치 선택하기"
+        let select = UserDefaults.standard.bool(forKey: "select")
+        if select == true{
+            navigationItem.title = "다마고치 선택하기"
+        } else {
+            navigationItem.title = "다마고치 변경하기"
+        }
+        
         navigationItem.hidesBackButton = true
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
     }

@@ -86,6 +86,7 @@ class SettingTableViewController: UITableViewController {
             }
             let navigationController = UINavigationController(rootViewController: choiceViewController)
             navigationController.modalPresentationStyle = .fullScreen
+            UserDefaults.standard.set(false, forKey: "select")
             self.navigationController?.pushViewController(choiceViewController, animated: true)
         } else if indexPath == [0,2] {
             let warning = UIAlertController(title: "경고", message: "닉네임과 레벨이 모두 초기화됩니다", preferredStyle: .alert)
