@@ -127,8 +127,7 @@ class TamagotchiViewController: UIViewController {
         if level > 10 {
             level = 10
         }
-        UserDefaults.standard.set(level, forKey: "level")
-        statusLabel.text = "LV \(UserDefaults.standard.integer(forKey: "level")) • 밥알 \(UserDefaults.standard.integer(forKey: "rice"))알 • 물방울 \(UserDefaults.standard.integer(forKey: "water"))방울"
+        statusLabel.text = "LV \(level) • 밥알 \(UserDefaults.standard.integer(forKey: "rice"))알 • 물방울 \(UserDefaults.standard.integer(forKey: "water"))방울"
     }
 
     func loadScript(){

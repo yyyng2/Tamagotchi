@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         
-        if UserDefaults.standard.bool(forKey: "First") == true {
+        if UserDefaults.standard.bool(forKey: "First") == false {
           
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             let viewController = storyBoard.instantiateViewController(withIdentifier: NicknameViewController.identifier) as! NicknameViewController
