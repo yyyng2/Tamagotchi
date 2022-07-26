@@ -81,7 +81,7 @@ class ChoiceCollectionViewController: UICollectionViewController {
             navigationViewcontroller.modalPresentationStyle = .overCurrentContext
             tamagotchiDetailViewController.tamagotchiData = tamagotchiList.tamoagotchi[indexNumber]
             tamagotchiDetailViewController.indexNumber = indexNumber
-            print(indexNumber)
+            UserDefaults.standard.set(true, forKey: "detail")
             self.present(navigationViewcontroller, animated: true)
         } else {
             let alert = UIAlertController(title: "!", message: "준비중입니다.", preferredStyle: .alert)

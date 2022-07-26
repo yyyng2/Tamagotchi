@@ -67,7 +67,13 @@ class TamagotchiDetailViewController: UIViewController {
     }
     
     func designButton(){
-        doneButton.setTitle("시작하기", for: .normal)
+        let select = UserDefaults.standard.bool(forKey: "select")
+        if select == true{
+            doneButton.setTitle("시작하기", for: .normal)
+        } else {
+            doneButton.setTitle("변경하기", for: .normal)
+        }
+        
         cancelButton.setTitle("취소", for: .normal)
         doneButton.tintColor = .white
         cancelButton.tintColor = .white
