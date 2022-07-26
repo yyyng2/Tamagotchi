@@ -101,12 +101,10 @@ class SettingTableViewController: UITableViewController {
                 let viewController = storyBoard.instantiateViewController(withIdentifier: NicknameViewController.identifier) as! NicknameViewController
                 sceneDelegate?.window?.rootViewController = UINavigationController(rootViewController: viewController)
                 sceneDelegate?.window?.makeKeyAndVisible()
-                //userdefault 초기화
-                UserDefaults.standard.removeObject(forKey: "water")
-                UserDefaults.standard.removeObject(forKey: "rice")
-                UserDefaults.standard.removeObject(forKey: "userNickname")
-                UserDefaults.standard.removeObject(forKey: "level")
-                UserDefaults.standard.removeObject(forKey: "index")
+                //userdefault 전체 초기화
+                for key in UserDefaults.standard.dictionaryRepresentation().keys {
+                            UserDefaults.standard.removeObject(forKey: key.description)
+                        }
             }))
             warning.addAction(UIAlertAction(title: "취소", style: .cancel))
             present(warning, animated: true)
