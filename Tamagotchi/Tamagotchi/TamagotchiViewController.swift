@@ -83,7 +83,6 @@ class TamagotchiViewController: UIViewController {
             
             // add a done button to the numberpad
             keypadToolbar.items=[
-                
                 UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: textField, action: #selector(UITextField.resignFirstResponder)),
                 UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
             ]
@@ -94,7 +93,7 @@ class TamagotchiViewController: UIViewController {
     
     func designTextField(){
         waterTextField.keyboardType = .numberPad
-        waterTextField.placeholder = "1~50"
+        waterTextField.placeholder = "1~49"
         riceTextField.keyboardType = .numberPad
         riceTextField.placeholder = "1~99"
         addDoneButtonOnNumpad(textField: waterTextField)
@@ -255,14 +254,14 @@ class TamagotchiViewController: UIViewController {
             if codeNum == nil {
                 alert(title: "!", message: "숫자로만 입력해주세요.")
             } else if riceTextField.text != ""{
-                if Int(riceTextField.text!)! > 100{
-                    return
+                let codeNum = Int(riceTextField.text!)
+                if codeNum! > 99{
+                    alert(title: "!", message: "99이하로 입력해주세요.")
                 }
-            } else {
-                updateValue = currentValue + Int(riceTextField.text!)!
-                UserDefaults.standard.set(updateValue, forKey: "rice")
             }
-           
+                updateValue = currentValue + Int(riceTextField.text!)!
+                print(updateValue)
+                UserDefaults.standard.set(updateValue, forKey: "rice")
         }
         
         rice += UserDefaults.standard.integer(forKey: "rice")
@@ -282,14 +281,13 @@ class TamagotchiViewController: UIViewController {
             if codeNum == nil {
                 alert(title: "!", message: "숫자로만 입력해주세요.")
             } else if waterTextField.text != ""{
-                if Int(waterTextField.text!)! > 50{
-                    return
+                let codeNum = Int(waterTextField.text!)
+                if codeNum! > 49{
+                    alert(title: "!", message: "49이하로 입력해주세요.")
                 }
-            } else {
+            }
                 updateValue = currentValue + Int(waterTextField.text!)!
                 UserDefaults.standard.set(updateValue, forKey: "water")
-            }
-           
         }
         
         rice += UserDefaults.standard.integer(forKey: "water")
