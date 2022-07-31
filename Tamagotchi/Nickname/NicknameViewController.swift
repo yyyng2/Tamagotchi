@@ -8,6 +8,8 @@
 import UIKit
 
 class NicknameViewController: UIViewController {
+    
+    let notificationCenter = UNUserNotificationCenter.current()
 
     static let identifier = "NicknameViewController"
     
@@ -17,10 +19,39 @@ class NicknameViewController: UIViewController {
     @IBOutlet var labelOutletCollection: [UILabel]!
     override func viewDidLoad() {
         super.viewDidLoad()
+        requestAuthorization()
         designLabel()
         designDoneButton()
         designMainUIView()
         UserDefaults.standard.set(true, forKey: "First")
+    }
+    
+    func requestAuthorization(){
+        let authorizationOptions = UNAuthorizationOptions(arrayLiteral: .badge, .sound, .alert)
+        
+        notificationCenter.requestAuthorization(options: authorizationOptions) { success, error in
+            if success {
+                self.sendNotification()
+            }
+        }
+    }
+    
+    func sendNotification(){
+        let notificationContent = UNMutableNotificationContent()
+        notificationContent.sound = .default
+        notificationContent.title = "다마고치를 키워보세요."
+        notificationContent.subtitle = "밥이나 물을 줘볼까요?"
+        notificationContent.body = "따끔이, 방실이, 반짝이가 배고파해요."
+        notificationContent.badge = 1
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
+//        var dateComponents = DateComponents()
+//        dateComponents.minute = 1
+//        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        let request = UNNotificationRequest(identifier: "1", content: notificationContent, trigger: trigger)
+        
+        notificationCenter.add(request)
+        
     }
 
     func designMainUIView(){
