@@ -104,7 +104,7 @@ class SettingTableViewController: UITableViewController {
                 //userdefault 전체 초기화
                 for key in UserDefaults.standard.dictionaryRepresentation().keys {
                             UserDefaults.standard.removeObject(forKey: key.description)
-                        }
+                }
             }))
             warning.addAction(UIAlertAction(title: "취소", style: .cancel))
             present(warning, animated: true)

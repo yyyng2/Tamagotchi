@@ -25,7 +25,7 @@ class ChoiceCollectionViewController: UICollectionViewController {
     
     func designNavigationItem(){
         let select = UserDefaults.standard.bool(forKey: "select")
-        if select == true{
+        if select {
             navigationItem.title = "다마고치 선택하기"
         } else {
             navigationItem.title = "다마고치 변경하기"
@@ -55,17 +55,8 @@ class ChoiceCollectionViewController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChoiceCollectionViewCell.identifier, for: indexPath) as? ChoiceCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.cellBackgroundView.backgroundColor = .clear
-        cell.cellImageUIView.backgroundColor = .clear
-        cell.tamagotchiNameLabel.text = tamagotchiList.tamoagotchi[indexPath.row].tamagotchiName
-        cell.tamagotchiImageView.image = tamagotchiList.tamoagotchi[indexPath.row].tamagotchiBlurImage!
-        cell.tamagotchiNameLabel.font = .systemFont(ofSize: 13)
-        cell.tamagotchiNameLabel.textColor = .white
-        cell.tamagotchiNameLabel.textAlignment = .center
-        cell.tamagotchiNameLabel.layer.borderWidth = 1
-        cell.tamagotchiNameLabel.layer.borderColor = UIColor.white.cgColor
-        cell.tamagotchiNameLabel.layer.cornerRadius = 8
-        cell.backgroundColor = .clear
+        let tamagotchi = tamagotchiList.tamoagotchi[indexPath.row]
+        cell.configureCell(tamagotchi: tamagotchi)
         
         return cell
     }

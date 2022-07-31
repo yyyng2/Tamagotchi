@@ -139,7 +139,7 @@
                                         <rect key="frame" x="35.5" y="359" width="239" height="1"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wDJ-In-nXA">
-                                        <rect key="frame" x="38.5" y="383.5" width="233" height="21"/>
+                                        <rect key="frame" x="38.5" y="368" width="233" height="115.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -196,7 +196,7 @@
                                     <constraint firstItem="uXC-TA-Lcc" firstAttribute="centerY" secondItem="1kX-H7-zRO" secondAttribute="centerY" multiplier="1.2" id="Hi8-HY-8uZ"/>
                                     <constraint firstItem="wDJ-In-nXA" firstAttribute="centerX" secondItem="1kX-H7-zRO" secondAttribute="centerX" id="IqX-xF-qRt"/>
                                     <constraint firstAttribute="trailing" secondItem="BTl-08-cub" secondAttribute="trailing" constant="50" id="J9x-kq-oKL"/>
-                                    <constraint firstItem="wDJ-In-nXA" firstAttribute="top" secondItem="uXC-TA-Lcc" secondAttribute="bottom" constant="23.5" id="NRu-fl-X3q"/>
+                                    <constraint firstItem="wDJ-In-nXA" firstAttribute="top" secondItem="uXC-TA-Lcc" secondAttribute="bottom" constant="8" id="NRu-fl-X3q"/>
                                     <constraint firstItem="BTl-08-cub" firstAttribute="top" secondItem="1kX-H7-zRO" secondAttribute="top" constant="30" id="UyH-SL-OCk"/>
                                     <constraint firstItem="xre-hI-arI" firstAttribute="width" secondItem="1kX-H7-zRO" secondAttribute="width" id="WKc-5r-ZqN"/>
                                     <constraint firstItem="uXC-TA-Lcc" firstAttribute="centerX" secondItem="1kX-H7-zRO" secondAttribute="centerX" id="l1f-Rs-cB4"/>
@@ -206,6 +206,7 @@
                                     <constraint firstItem="BTl-08-cub" firstAttribute="leading" secondItem="1kX-H7-zRO" secondAttribute="leading" constant="50" id="vEA-M1-Flh"/>
                                     <constraint firstItem="uXC-TA-Lcc" firstAttribute="width" secondItem="1kX-H7-zRO" secondAttribute="width" multiplier="0.77" id="yGz-v0-iD0"/>
                                     <constraint firstItem="hvQ-dS-AUb" firstAttribute="centerX" secondItem="BTl-08-cub" secondAttribute="centerX" id="ybF-HA-CPc"/>
+                                    <constraint firstItem="xre-hI-arI" firstAttribute="top" secondItem="wDJ-In-nXA" secondAttribute="bottom" constant="8" id="ye5-Wt-aoG"/>
                                     <constraint firstAttribute="trailing" secondItem="xre-hI-arI" secondAttribute="trailing" id="yy8-iX-5YT"/>
                                 </constraints>
                             </view>

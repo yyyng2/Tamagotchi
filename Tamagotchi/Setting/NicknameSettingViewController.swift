@@ -16,7 +16,7 @@ class NicknameSettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         designNaviagtion()
-        designUI()
+        designTextField()
    
     }
     
@@ -26,12 +26,14 @@ class NicknameSettingViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveButtonTapped))
     }
     
-    func designUI(){
+    func designTextField(){
         userTextField.backgroundColor = .clear
         userTextField.borderStyle = .none
-        userTextField.placeholder = "2~6글자"
         whiteLineImageView.image = UIImage(named: "horizontalWhiteLine")
         whiteLineImageView.contentMode = .scaleToFill
+        
+        guard let userName = UserDefaults.standard.string(forKey: "userNickname") else {return}
+        userTextField.placeholder = "\(userName)님 닉네임을 입력해주세요!"
     }
     
     func textFieldShouldReturn(_ TextField: UITextField) -> Bool {

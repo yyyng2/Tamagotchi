@@ -72,12 +72,6 @@ class NicknameViewController: UIViewController {
             return
         }
         
-        
-        let tamagotchiStoryBoad = UIStoryboard(name: "Tamagotchi", bundle: nil)
-        guard let tamagotchiViewController = tamagotchiStoryBoad.instantiateViewController(withIdentifier: TamagotchiViewController.identifier) as? TamagotchiViewController else {
-            return
-        }
-        
         let userNickname = userNicknameTextField.text!
         UserDefaults.standard.set(userNickname, forKey: "userNickname")
         UserDefaults.standard.set(true, forKey: "First")

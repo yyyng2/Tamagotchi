@@ -39,34 +39,31 @@ class TamagotchiViewController: UIViewController {
         view.backgroundColor = .systemGray2
         
         setKeyboardObserver()
-        designTextField()
+        designTextField(textfieldName: waterTextField, placeholder: "1~49")
+        designTextField(textfieldName: riceTextField, placeholder: "1~99")
         designUIView()
         designNavigationItem()
         designImageView()
         designLabel()
         designUIImageView()
-        designButton()
+        designButton(buttonName: waterButton, imageName: "drop.circle", titleName: " 물먹기")
+        designButton(buttonName: riceButton, imageName: "leaf.circle", titleName: " 밥먹기")
         loadStatus()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         designNavigationItem()
+        designImageView()
     }
     
-    func designButton(){
-        waterButton.setImage(UIImage(systemName: "drop.circle"), for: .normal)
-        waterButton.setTitle(" 물먹기", for: .normal)
-        waterButton.tintColor = .white
-        riceButton.setImage(UIImage(systemName: "leaf.circle"), for: .normal)
-        riceButton.setTitle(" 밥먹기", for: .normal)
-        riceButton.tintColor = .white
-        waterButton.layer.borderWidth = 1
-        waterButton.layer.borderColor = UIColor.white.cgColor
-        waterButton.layer.cornerRadius = 8
-        riceButton.layer.borderColor = UIColor.white.cgColor
-        riceButton.layer.borderWidth = 1
-        riceButton.layer.cornerRadius = 8
-        
+    func designButton(buttonName: UIButton, imageName: String, titleName: String){
+        buttonName.setImage(UIImage(systemName: imageName), for: .normal)
+        buttonName.setTitle(titleName, for: .normal)
+        buttonName.tintColor = .white
+        buttonName.layer.borderWidth = 1
+        buttonName.layer.borderColor = UIColor.white.cgColor
+        buttonName.layer.cornerRadius = 8
     }
     
     func designUIImageView(){
@@ -91,13 +88,10 @@ class TamagotchiViewController: UIViewController {
             textField.inputAccessoryView = keypadToolbar
     }//addDoneToKeyPad
     
-    func designTextField(){
-        waterTextField.keyboardType = .numberPad
-        waterTextField.placeholder = "1~49"
-        riceTextField.keyboardType = .numberPad
-        riceTextField.placeholder = "1~99"
-        addDoneButtonOnNumpad(textField: waterTextField)
-        addDoneButtonOnNumpad(textField: riceTextField)
+    func designTextField(textfieldName: UITextField, placeholder: String){
+        textfieldName.keyboardType = .numberPad
+        textfieldName.placeholder = placeholder
+        addDoneButtonOnNumpad(textField: textfieldName)
     }
 
     
@@ -109,7 +103,7 @@ class TamagotchiViewController: UIViewController {
         tamagotchiNameLabel.backgroundColor = .clear
         tamagotchiNameLabel.clipsToBounds = true
         tamagotchiNameLabel.layer.cornerRadius = 8
-        tamagotchiNameLabel.text = " \(tamagotchiInfo.tamoagotchi[indexNumber].tamagotchiName) "
+        tamagotchiNameLabel.text = " \(tamagotchiInfo.tamoagotchi[indexNumber].tamagotchiName)  "
         scriptLabel.backgroundColor = .clear
         scriptLabel.textColor = .white
         scriptLabel.numberOfLines = 5
@@ -149,67 +143,35 @@ class TamagotchiViewController: UIViewController {
         designLevelImageView()
     }
     
+    func changeLevelImage(imageName: String){
+        tamagotchiImageView.image = UIImage(named: imageName)
+    }
+    
     func designLevelImageView(){
         if indexNumber == 0{
             if level < 2{
-                tamagotchiImageView.image = UIImage(named: "1-1.png")
-            } else if level == 2{
-                tamagotchiImageView.image = UIImage(named: "1-2.png")
-                } else if level == 3{
-                    tamagotchiImageView.image = UIImage(named: "1-3.png")
-                } else if level == 4{
-                    tamagotchiImageView.image = UIImage(named: "1-4.png")
-                } else if level == 5{
-                    tamagotchiImageView.image = UIImage(named: "1-5.png")
-                } else if level == 6{
-                    tamagotchiImageView.image = UIImage(named: "1-6.png")
-                } else if level == 7{
-                    tamagotchiImageView.image = UIImage(named: "1-7.png")
-                } else if level == 8{
-                    tamagotchiImageView.image = UIImage(named: "1-8.png")
-                } else if level > 8{
-                    tamagotchiImageView.image = UIImage(named: "1-9.png")
+                changeLevelImage(imageName: "1-1.png")
+            } else if level > 8{
+                changeLevelImage(imageName: "1-9.png")
+                } else {
+                    changeLevelImage(imageName: "1-\(level).png")
                 }
             } else if indexNumber == 1{
                 if level < 2{
-                    tamagotchiImageView.image = UIImage(named: "2-1.png")
-                } else if level == 2{
-                    tamagotchiImageView.image = UIImage(named: "2-2.png")
-                    } else if level == 3{
-                    tamagotchiImageView.image = UIImage(named: "2-3.png")
-                    } else if level == 4{
-                        tamagotchiImageView.image = UIImage(named: "2-4.png")
-                    } else if level == 5{
-                        tamagotchiImageView.image = UIImage(named: "2-5.png")
-                    } else if level == 6{
-                        tamagotchiImageView.image = UIImage(named: "2-6.png")
-                    } else if level == 7{
-                        tamagotchiImageView.image = UIImage(named: "2-7.png")
-                    } else if level == 8{
-                        tamagotchiImageView.image = UIImage(named: "2-8.png")
-                    } else if level > 8{
-                        tamagotchiImageView.image = UIImage(named: "2-9.png")
+                    changeLevelImage(imageName: "2-1.png")
+                } else if level > 8{
+                    changeLevelImage(imageName: "2-9.png")
+                    } else {
+                        changeLevelImage(imageName: "2-\(level).png")
                     }
             } else if indexNumber == 2{
-                        if level < 2{
-                            tamagotchiImageView.image = UIImage(named: "3-1.png")
-                        } else if level == 2{
-                            tamagotchiImageView.image = UIImage(named: "3-2.png")
-                            } else if level == 3{
-                                tamagotchiImageView.image = UIImage(named: "3-3.png")
-                            } else if level == 4{
-                                tamagotchiImageView.image = UIImage(named: "3-4.png")
-                            } else if level == 5{
-                                tamagotchiImageView.image = UIImage(named: "3-5.png")
-                            } else if level == 6{
-                                tamagotchiImageView.image = UIImage(named: "3-6.png")
-                            } else if level == 7{
-                                tamagotchiImageView.image = UIImage(named: "3-7.png")
-                            } else if level == 8{
-                                tamagotchiImageView.image = UIImage(named: "3-8.png")
-                            } else if level > 8{
-                                tamagotchiImageView.image = UIImage(named: "3-9.png")
-                            }
+                if level < 2{
+                    changeLevelImage(imageName: "3-1.png")
+                } else if level > 8{
+                    changeLevelImage(imageName: "3-9.png")
+                    } else {
+                        changeLevelImage(imageName: "3-\(level).png")
+                    }
             }
     }
     
@@ -273,16 +235,17 @@ class TamagotchiViewController: UIViewController {
     @IBAction func waterButtonTapped(_ sender: UIButton) {
         let currentValue:Int = UserDefaults.standard.integer(forKey: "water")
         var updateValue = 0
-        if waterTextField.text == ""{
+        guard let text = waterTextField.text else {return}
+        if text == ""{
             updateValue = currentValue + 1
             UserDefaults.standard.set(updateValue, forKey: "water")
-        } else if waterTextField.text != "" {
+        } else if text != "" {
             let codeNum = Int(waterTextField.text!)
             if codeNum == nil {
                 alert(title: "!", message: "숫자로만 입력해주세요.")
             } else if waterTextField.text != ""{
-                let codeNum = Int(waterTextField.text!)
-                if codeNum! > 49{
+                guard let codeNum = Int(waterTextField.text!) else {return}
+                if codeNum > 49{
                     alert(title: "!", message: "49이하로 입력해주세요.")
                 }
             }

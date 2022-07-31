@@ -23,7 +23,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="269" height="179.5"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wbd-BA-Flt">
-                                        <rect key="frame" x="13.5" y="79" width="242" height="21"/>
+                                        <rect key="frame" x="20" y="79" width="229" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -34,7 +34,7 @@
                                     <constraint firstItem="OrV-Mz-jdM" firstAttribute="width" secondItem="zJ1-AX-CIe" secondAttribute="width" id="3XR-rH-5cN"/>
                                     <constraint firstItem="OrV-Mz-jdM" firstAttribute="top" secondItem="zJ1-AX-CIe" secondAttribute="top" id="AxQ-qD-1cr"/>
                                     <constraint firstItem="Wbd-BA-Flt" firstAttribute="centerY" secondItem="zJ1-AX-CIe" secondAttribute="centerY" id="GPW-fb-Fkg"/>
-                                    <constraint firstItem="Wbd-BA-Flt" firstAttribute="width" secondItem="zJ1-AX-CIe" secondAttribute="width" multiplier="0.9" id="GuN-pV-zBH"/>
+                                    <constraint firstItem="Wbd-BA-Flt" firstAttribute="width" secondItem="zJ1-AX-CIe" secondAttribute="width" multiplier="0.85" id="GuN-pV-zBH"/>
                                     <constraint firstItem="Wbd-BA-Flt" firstAttribute="centerX" secondItem="zJ1-AX-CIe" secondAttribute="centerX" id="MG7-SW-LE4"/>
                                     <constraint firstAttribute="trailing" secondItem="OrV-Mz-jdM" secondAttribute="trailing" id="PIT-yH-saw"/>
                                     <constraint firstItem="OrV-Mz-jdM" firstAttribute="leading" secondItem="zJ1-AX-CIe" secondAttribute="leading" id="ZmP-iD-FbO"/>
