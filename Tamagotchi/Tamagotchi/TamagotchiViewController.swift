@@ -148,31 +148,13 @@ class TamagotchiViewController: UIViewController {
     }
     
     func designLevelImageView(){
-        if indexNumber == 0{
-            if level < 2{
-                changeLevelImage(imageName: "1-1.png")
+        if level < 2{
+                changeLevelImage(imageName: "\(indexNumber + 1)-1.png")
             } else if level > 8{
-                changeLevelImage(imageName: "1-9.png")
+                changeLevelImage(imageName: "\(indexNumber + 1)-9.png")
                 } else {
-                    changeLevelImage(imageName: "1-\(level).png")
-                }
-            } else if indexNumber == 1{
-                if level < 2{
-                    changeLevelImage(imageName: "2-1.png")
-                } else if level > 8{
-                    changeLevelImage(imageName: "2-9.png")
-                    } else {
-                        changeLevelImage(imageName: "2-\(level).png")
-                    }
-            } else if indexNumber == 2{
-                if level < 2{
-                    changeLevelImage(imageName: "3-1.png")
-                } else if level > 8{
-                    changeLevelImage(imageName: "3-9.png")
-                    } else {
-                        changeLevelImage(imageName: "3-\(level).png")
-                    }
-            }
+                    changeLevelImage(imageName: "\(indexNumber + 1)-\(level).png")
+                }       
     }
     
     func designUIView(){
