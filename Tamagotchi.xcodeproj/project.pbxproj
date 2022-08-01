@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1876B49C2897C5FD002543B6 /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876B49B2897C5FD002543B6 /* ReusableViewProtocol.swift */; };
+		1876B49F2897C99C002543B6 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1876B49E2897C99B002543B6 /* Constant.swift */; };
 		1879EB8E288A7ACC009B0603 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879EB8D288A7ACC009B0603 /* AppDelegate.swift */; };
 		1879EB90288A7ACC009B0603 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879EB8F288A7ACC009B0603 /* SceneDelegate.swift */; };
 		1879EB92288A7ACC009B0603 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879EB91288A7ACC009B0603 /* NicknameViewController.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1876B49B2897C5FD002543B6 /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
+		1876B49E2897C99B002543B6 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		1879EB8A288A7ACC009B0603 /* Tamagotchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tamagotchi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1879EB8D288A7ACC009B0603 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1879EB8F288A7ACC009B0603 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +69,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1876B49A2897C5E2002543B6 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				1876B49B2897C5FD002543B6 /* ReusableViewProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		1876B49D2897C977002543B6 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				1876B49E2897C99B002543B6 /* Constant.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
 		1879EB81288A7ACC009B0603 = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +104,8 @@
 		1879EB8C288A7ACC009B0603 /* Tamagotchi */ = {
 			isa = PBXGroup;
 			children = (
+				1876B49D2897C977002543B6 /* Constant */,
+				1876B49A2897C5E2002543B6 /* Protocol */,
 				18917D7D288E2B5800CF2260 /* Nickname */,
 				18917D7E288E2B7400CF2260 /* Choice */,
 				18917D7F288E2B8900CF2260 /* Tamagotchi */,
@@ -222,6 +244,7 @@
 				1879EB92288A7ACC009B0603 /* NicknameViewController.swift in Sources */,
 				188495D4288CBFE1001901B4 /* NicknameSettingViewController.swift in Sources */,
 				1879EBA6288A950F009B0603 /* ChoiceCollectionViewController.swift in Sources */,
+				1876B49F2897C99C002543B6 /* Constant.swift in Sources */,
 				1879EB8E288A7ACC009B0603 /* AppDelegate.swift in Sources */,
 				1879EBAC288AA328009B0603 /* TamagotchiInfo.swift in Sources */,
 				189D0F38288AB8FA00132858 /* TamagotchiDetailViewController.swift in Sources */,
@@ -230,6 +253,7 @@
 				189D0F42288B8D3B00132858 /* SettingTableViewController.swift in Sources */,
 				188495D0288BE996001901B4 /* SettingTableViewCell.swift in Sources */,
 				1879EBA8288A951F009B0603 /* ChoiceCollectionViewCell.swift in Sources */,
+				1876B49C2897C5FD002543B6 /* ReusableViewProtocol.swift in Sources */,
 				1879EBAA288AA31E009B0603 /* Tamagotchis.swift in Sources */,
 				189D0F48288BD73000132858 /* UIViewController + Extension.swift in Sources */,
 				1879EB90288A7ACC009B0603 /* SceneDelegate.swift in Sources */,
