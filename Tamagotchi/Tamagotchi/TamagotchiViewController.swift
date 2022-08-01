@@ -182,23 +182,25 @@ class TamagotchiViewController: UIViewController {
     @IBAction func riceButtonTapped(_ sender: UIButton) {
         let currentValue = UserDefaultsHelper.standard.rice
         var updateValue = 0
-
-        if riceTextField.text == ""{
+        guard let text = riceTextField.text else {return}
+        if text == ""{
             updateValue = currentValue + 1
             UserDefaultsHelper.standard.rice = updateValue
-        } else if riceTextField.text != "" {
+        } else if text != "" {
             let codeNum = Int(riceTextField.text!)
             if codeNum == nil {
                 alert(title: "!", message: "너무 길거나 숫자가 아닙니다.")
             } else if riceTextField.text != ""{
-                let codeNum = Int(riceTextField.text!)
-                if codeNum! > 99{
+                guard let codeNum = Int(riceTextField.text!) else {return}
+                if codeNum > 99{
                     alert(title: "!", message: "99이하로 입력해주세요.")
+                } else {
+                guard let addedValue = Int(riceTextField.text!) else { return }
+              
+                updateValue = currentValue + addedValue
+                UserDefaultsHelper.standard.rice = updateValue
+                print(updateValue)
                 }
-            } else {
-            guard let addedValue = Int(riceTextField.text!) else { return }
-            updateValue = currentValue + addedValue
-            UserDefaultsHelper.standard.rice = updateValue
             }
         }
         
