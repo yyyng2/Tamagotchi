@@ -9,7 +9,7 @@ import UIKit
 
 var rice = 0
 var water = 0
-var level = (UserDefaults.standard.integer(forKey: "rice")/5) + (UserDefaults.standard.integer(forKey: "water")/2)
+var level = ((UserDefaultsHelper.standard.rice / 5) + (UserDefaultsHelper.standard.water / 2)) / 10
 
 class TamagotchiViewController: UIViewController {
 
@@ -31,8 +31,6 @@ class TamagotchiViewController: UIViewController {
     var tamagotchiData: TamagotchiList?
     var tamagotchiInfo = TamagotchiInfo()
     var indexNumber = UserDefaults.standard.integer(forKey: "index")
-    
-    static let identifier = "TamagotchiViewController"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,21 +114,18 @@ class TamagotchiViewController: UIViewController {
     }
     
     func loadStatus(){
-        level = (UserDefaults.standard.integer(forKey: "rice")/5) + (UserDefaults.standard.integer(forKey: "water")/2)
+        level = ((UserDefaultsHelper.standard.rice / 5) + (UserDefaultsHelper.standard.water / 2)) / 10
         if level > 10 {
             level = 10
         }
-        statusLabel.text = "LV \(level) • 밥알 \(UserDefaults.standard.integer(forKey: "rice"))알 • 물방울 \(UserDefaults.standard.integer(forKey: "water"))방울"
+        statusLabel.text = "LV \(level) • 밥알 \(UserDefaultsHelper.standard.rice)알 • 물방울 \(UserDefaultsHelper.standard.water)방울"
     }
 
     func loadScript(){
         if indexNumber == 0{
             scriptLabel.text = "야, \(script.scripts[0].scriptType.randomElement()!)"
         } else if indexNumber == 1 {
-            guard let nickName = UserDefaults.standard.string(forKey: "userNickname") else {
-                return
-            }
-            scriptLabel.text = "\(nickName)님 \(script.scripts[1].scriptType.randomElement()!)"
+            scriptLabel.text = "\(UserDefaultsHelper.standard.userNickname)님 \(script.scripts[1].scriptType.randomElement()!)"
         } else {
             scriptLabel.text = "...\(script.scripts[2].scriptType.randomElement()!)"
         }
@@ -165,10 +160,8 @@ class TamagotchiViewController: UIViewController {
 
     
     func designNavigationItem(){
-        guard let nickName = UserDefaults.standard.string(forKey: "userNickname") else {
-            return
-        }
-        title = "\(nickName)님의 다마고치"
+        
+        title = "\(UserDefaultsHelper.standard.userNickname)님의 다마고치"
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         navigationItem.hidesBackButton = true
@@ -177,7 +170,7 @@ class TamagotchiViewController: UIViewController {
     
     @objc func rightBarButtonItemTapped(){
         let settingStoryBoard = UIStoryboard(name: "Setting", bundle: nil)
-        guard let settingTableViewController = settingStoryBoard.instantiateViewController(withIdentifier: SettingTableViewController.identifier) as? SettingTableViewController else {
+        guard let settingTableViewController = settingStoryBoard.instantiateViewController(withIdentifier: SettingTableViewController.reuseIdentifier) as? SettingTableViewController else {
             return
         }
         settingTableViewController.modalPresentationStyle = .fullScreen
@@ -187,58 +180,65 @@ class TamagotchiViewController: UIViewController {
     
 
     @IBAction func riceButtonTapped(_ sender: UIButton) {
-        let currentValue:Int = UserDefaults.standard.integer(forKey: "rice")
+        let currentValue = UserDefaultsHelper.standard.rice
         var updateValue = 0
 
         if riceTextField.text == ""{
             updateValue = currentValue + 1
-            UserDefaults.standard.set(updateValue, forKey: "rice")
+            UserDefaultsHelper.standard.rice = updateValue
         } else if riceTextField.text != "" {
             let codeNum = Int(riceTextField.text!)
             if codeNum == nil {
-                alert(title: "!", message: "숫자로만 입력해주세요.")
+                alert(title: "!", message: "너무 길거나 숫자가 아닙니다.")
             } else if riceTextField.text != ""{
                 let codeNum = Int(riceTextField.text!)
                 if codeNum! > 99{
                     alert(title: "!", message: "99이하로 입력해주세요.")
                 }
+            } else {
+            guard let addedValue = Int(riceTextField.text!) else { return }
+            updateValue = currentValue + addedValue
+            UserDefaultsHelper.standard.rice = updateValue
             }
-                updateValue = currentValue + Int(riceTextField.text!)!
-                print(updateValue)
-                UserDefaults.standard.set(updateValue, forKey: "rice")
         }
         
-        rice += UserDefaults.standard.integer(forKey: "rice")
+        rice += UserDefaultsHelper.standard.rice
         loadStatus()
         loadScript()
         designLevelImageView()
     }
     
     @IBAction func waterButtonTapped(_ sender: UIButton) {
-        let currentValue:Int = UserDefaults.standard.integer(forKey: "water")
+        let currentValue = UserDefaultsHelper.standard.water
         var updateValue = 0
         guard let text = waterTextField.text else {return}
         if text == ""{
             updateValue = currentValue + 1
-            UserDefaults.standard.set(updateValue, forKey: "water")
+            UserDefaultsHelper.standard.water = updateValue
         } else if text != "" {
             let codeNum = Int(waterTextField.text!)
             if codeNum == nil {
-                alert(title: "!", message: "숫자로만 입력해주세요.")
+                alert(title: "!", message: "너무 길거나 숫자가 아닙니다.")
             } else if waterTextField.text != ""{
                 guard let codeNum = Int(waterTextField.text!) else {return}
                 if codeNum > 49{
                     alert(title: "!", message: "49이하로 입력해주세요.")
+                } else {
+                guard let addedValue = Int(waterTextField.text!) else { return }
+              
+                updateValue = currentValue + addedValue
+                UserDefaultsHelper.standard.water = updateValue
+                print(updateValue)
                 }
             }
-                updateValue = currentValue + Int(waterTextField.text!)!
-                UserDefaults.standard.set(updateValue, forKey: "water")
         }
+ 
         
-        rice += UserDefaults.standard.integer(forKey: "water")
+        water += UserDefaultsHelper.standard.water
         designLevelImageView()
         loadStatus()
         loadScript()
+    
     }
     
     @IBAction func gestureTapped(_ sender: UITapGestureRecognizer) {

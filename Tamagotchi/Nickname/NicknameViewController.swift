@@ -10,8 +10,6 @@ import UIKit
 class NicknameViewController: UIViewController {
     
     let notificationCenter = UNUserNotificationCenter.current()
-
-    static let identifier = "NicknameViewController"
     
     @IBOutlet weak var userNicknameTextField: UITextField!
     @IBOutlet weak var mainUIView: UIView!
@@ -99,14 +97,14 @@ class NicknameViewController: UIViewController {
         
         
         let choiceStoryBoard = UIStoryboard(name: "Choice", bundle: nil)
-        guard let choiceCollectionViewController = choiceStoryBoard.instantiateViewController(withIdentifier: ChoiceCollectionViewController.identifier) as? ChoiceCollectionViewController else {
+        guard let choiceCollectionViewController = choiceStoryBoard.instantiateViewController(withIdentifier: ChoiceCollectionViewController.reuseIdentifier) as? ChoiceCollectionViewController else {
             return
         }
         
-        let userNickname = userNicknameTextField.text!
-        UserDefaults.standard.set(userNickname, forKey: "userNickname")
-        UserDefaults.standard.set(true, forKey: "First")
-        UserDefaults.standard.set(true, forKey: "select")
+        guard let userNickname = userNicknameTextField.text else { return }
+        UserDefaultsHelper.standard.userNickname = userNickname
+        UserDefaultsHelper.standard.first = true
+        UserDefaultsHelper.standard.select = true
         
         let navigationController = UINavigationController(rootViewController: choiceCollectionViewController)
         navigationController.modalPresentationStyle = .fullScreen

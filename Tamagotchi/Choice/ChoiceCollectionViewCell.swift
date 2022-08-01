@@ -14,7 +14,6 @@ class ChoiceCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cellBackgroundView: UIView!
     @IBOutlet weak var tamagotchiImageView: UIImageView!
     @IBOutlet weak var tamagotchiNameLabel: UILabel!
-    static let identifier = "ChoiceCollectionViewCell"
     
     func configureCell(tamagotchi: TamagotchiList){
         cellBackgroundView.backgroundColor = .clear

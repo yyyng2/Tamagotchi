@@ -12,9 +12,7 @@ private let reuseIdentifier = "Cell"
 class ChoiceCollectionViewController: UICollectionViewController {
 
     var tamagotchiList = TamagotchiInfo()
-    
-    static let identifier = "ChoiceCollectionViewController"
-    
+       
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,7 +50,7 @@ class ChoiceCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChoiceCollectionViewCell.identifier, for: indexPath) as? ChoiceCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChoiceCollectionViewCell.reuseIdentifier, for: indexPath) as? ChoiceCollectionViewCell else {
             return UICollectionViewCell()
         }
         let tamagotchi = tamagotchiList.tamoagotchi[indexPath.row]
@@ -65,14 +63,16 @@ class ChoiceCollectionViewController: UICollectionViewController {
         if indexPath.item < 3{
             let indexNumber = indexPath.item
             let tamagotchiDetailStoryBoard = UIStoryboard(name: "Choice", bundle: nil)
-            guard let tamagotchiDetailViewController = tamagotchiDetailStoryBoard.instantiateViewController(withIdentifier: TamagotchiDetailViewController.identifier) as? TamagotchiDetailViewController else {
+            guard let tamagotchiDetailViewController = tamagotchiDetailStoryBoard.instantiateViewController(withIdentifier: TamagotchiDetailViewController.reuseIdentifier) as? TamagotchiDetailViewController else {
             return
             }
             let navigationViewcontroller = UINavigationController(rootViewController: tamagotchiDetailViewController)
             navigationViewcontroller.modalPresentationStyle = .overCurrentContext
             tamagotchiDetailViewController.tamagotchiData = tamagotchiList.tamoagotchi[indexNumber]
             tamagotchiDetailViewController.indexNumber = indexNumber
-            UserDefaults.standard.set(true, forKey: "detail")
+            
+            UserDefaultsHelper.standard.detail = true
+            
             self.present(navigationViewcontroller, animated: true)
         } else {
             let alert = UIAlertController(title: "!", message: "준비중입니다.", preferredStyle: .alert)

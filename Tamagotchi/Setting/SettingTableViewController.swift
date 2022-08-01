@@ -13,9 +13,7 @@ class SettingTableViewController: UITableViewController {
 
     let settingOption = ["내 이름 설정하기", "다마고치 설정하기", "데이터 초기화"]
     let settingImage = ["pencil","moon.fill", "arrow.clockwise"]
-    var settingDetail = [UserDefaults.standard.string(forKey: "userNickname"), "", ""]
-    
-    static let identifier = "SettingTableViewController"
+    var settingDetail = [UserDefaultsHelper.standard.userNickname, "", ""]
     
     override func viewWillAppear(_ animated: Bool) {
         refresh()
@@ -30,7 +28,7 @@ class SettingTableViewController: UITableViewController {
     }
     
     func refresh(){
-        settingDetail = [UserDefaults.standard.string(forKey: "userNickname"), "", ""]
+        settingDetail = [UserDefaultsHelper.standard.userNickname, "", ""]
         tableView.reloadData()
     }
 
@@ -44,7 +42,7 @@ class SettingTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.identifier) as? SettingTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.reuseIdentifier) as? SettingTableViewCell else {
             return UITableViewCell()
         }
         cell.textLabel?.text = settingOption[indexPath.row]
@@ -61,7 +59,7 @@ class SettingTableViewController: UITableViewController {
         let settingStoryBoard = UIStoryboard(name: "Setting", bundle: nil)
         let choiceStoryBoard = UIStoryboard(name: "Choice", bundle: nil)
         if indexPath == [0,0] {
-            guard let nicknameViewController = settingStoryBoard.instantiateViewController(withIdentifier: NicknameSettingViewController.identifier) as? NicknameSettingViewController else {
+            guard let nicknameViewController = settingStoryBoard.instantiateViewController(withIdentifier: NicknameSettingViewController.reuseIdentifier) as? NicknameSettingViewController else {
                 return
             }
             let navigationController = UINavigationController(rootViewController: nicknameViewController)
@@ -71,7 +69,7 @@ class SettingTableViewController: UITableViewController {
             func ChangeAlert(title: String, message: String){
                 let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "확인", style: .cancel, handler: {action in
-                    guard let choiceViewController = choiceStoryBoard.instantiateViewController(withIdentifier: ChoiceCollectionViewController.identifier) as? ChoiceCollectionViewController else {
+                    guard let choiceViewController = choiceStoryBoard.instantiateViewController(withIdentifier: ChoiceCollectionViewController.reuseIdentifier) as? ChoiceCollectionViewController else {
                         return
                     }
                     let navigationController = UINavigationController(rootViewController: choiceViewController)
@@ -81,12 +79,12 @@ class SettingTableViewController: UITableViewController {
                 present(alert, animated: true)
             }
             ChangeAlert(title: "레벨이 유지됩니다!", message: "성격때문에 서로 말투도 달라요!")
-            guard let choiceViewController = choiceStoryBoard.instantiateViewController(withIdentifier: ChoiceCollectionViewController.identifier) as? ChoiceCollectionViewController else {
+            guard let choiceViewController = choiceStoryBoard.instantiateViewController(withIdentifier: ChoiceCollectionViewController.reuseIdentifier) as? ChoiceCollectionViewController else {
                 return
             }
             let navigationController = UINavigationController(rootViewController: choiceViewController)
             navigationController.modalPresentationStyle = .fullScreen
-            UserDefaults.standard.set(false, forKey: "select")
+            UserDefaultsHelper.standard.select = false
             self.navigationController?.pushViewController(choiceViewController, animated: true)
         } else if indexPath == [0,2] {
             let warning = UIAlertController(title: "경고", message: "닉네임과 레벨이 모두 초기화됩니다", preferredStyle: .alert)
@@ -98,7 +96,7 @@ class SettingTableViewController: UITableViewController {
                 let sceneDelegate = windowScene?.delegate as? SceneDelegate
                 
                 let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                let viewController = storyBoard.instantiateViewController(withIdentifier: NicknameViewController.identifier) as! NicknameViewController
+                let viewController = storyBoard.instantiateViewController(withIdentifier: NicknameViewController.reuseIdentifier) as! NicknameViewController
                 sceneDelegate?.window?.rootViewController = UINavigationController(rootViewController: viewController)
                 sceneDelegate?.window?.makeKeyAndVisible()
                 //userdefault 전체 초기화

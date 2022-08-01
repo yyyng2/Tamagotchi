@@ -13,8 +13,6 @@ class TamagotchiDetailViewController: UIViewController {
     var tamagoNumber = TamagotchiInfo()
     var indexNumber = 0
     
-    static let identifier = "TamagotchiDetailViewController"
-    
     @IBOutlet weak var buttonUIView: UIView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
@@ -67,7 +65,7 @@ class TamagotchiDetailViewController: UIViewController {
     }
     
     func designButton(){
-        let select = UserDefaults.standard.bool(forKey: "select")
+        let select = UserDefaultsHelper.standard.select
         if select == true{
             doneButton.setTitle("시작하기", for: .normal)
         } else {
@@ -85,10 +83,12 @@ class TamagotchiDetailViewController: UIViewController {
 
     @IBAction func doneButtonTapped(_ sender: UIButton) {
         let tamagotchiStoryBoard = UIStoryboard(name: "Tamagotchi", bundle: nil)
-        guard let tamagotchiViewController = tamagotchiStoryBoard.instantiateViewController(withIdentifier: TamagotchiViewController.identifier) as? TamagotchiViewController else {
+        guard let tamagotchiViewController = tamagotchiStoryBoard.instantiateViewController(withIdentifier: TamagotchiViewController.reuseIdentifier) as? TamagotchiViewController else {
             return
         }
-        UserDefaults.standard.set(indexNumber, forKey: "index")
+
+        UserDefaultsHelper.standard.index = indexNumber
+        
         tamagotchiViewController.indexNumber = indexNumber
 
         tamagotchiViewController.modalPresentationStyle = .fullScreen

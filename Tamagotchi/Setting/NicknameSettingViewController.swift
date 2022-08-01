@@ -11,7 +11,6 @@ class NicknameSettingViewController: UIViewController {
 
     @IBOutlet weak var userTextField: UITextField!
     @IBOutlet weak var whiteLineImageView: UIImageView!
-    static let identifier = "NicknameSettingViewController"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +31,7 @@ class NicknameSettingViewController: UIViewController {
         whiteLineImageView.image = UIImage(named: "horizontalWhiteLine")
         whiteLineImageView.contentMode = .scaleToFill
         
-        guard let userName = UserDefaults.standard.string(forKey: "userNickname") else {return}
-        userTextField.placeholder = "\(userName)님 닉네임을 입력해주세요!"
+        userTextField.placeholder = "\(UserDefaultsHelper.standard.userNickname)님 닉네임을 입력해주세요!"
     }
     
     func textFieldShouldReturn(_ TextField: UITextField) -> Bool {
@@ -52,9 +50,10 @@ class NicknameSettingViewController: UIViewController {
             alert(title: "!", message: "닉네임은 2~6자로 제한됩니다.")
             return
         }
-        UserDefaults.standard.set(userTextField.text, forKey: "userNickname")
+        guard let nickname = userTextField.text else {return}
+        UserDefaultsHelper.standard.userNickname = nickname
         let settingStoryBoard = UIStoryboard(name: "Setting", bundle: nil)
-        let settingViewController = settingStoryBoard.instantiateViewController(withIdentifier: SettingTableViewController.identifier) as! SettingTableViewController
+        let settingViewController = settingStoryBoard.instantiateViewController(withIdentifier: SettingTableViewController.reuseIdentifier) as! SettingTableViewController
         settingViewController.refresh()
         self.navigationController?.popViewController(animated: true)
     }
